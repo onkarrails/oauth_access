@@ -22,7 +22,9 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'oauth2'
 
 
 group :test, :development do
