@@ -9,7 +9,9 @@
 <body>
 	<%= flash[:notice] %>
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) if !current_user %>
-<%= link_to "Sign in with Twitter", '/auth/twitter' if !current_user %>
+<%#= link_to "Sign in with Twitter", '/auth/twitter' if !current_user %>
+<%= link_to "Sign in twitter", user_omniauth_authorize_path(:twitter) %>
+<%#= link_to "Sign in with Twitter2", user_omniauth_authorize_path(:twitter) if !current_user %>
 <%= yield %>
 
 </body>

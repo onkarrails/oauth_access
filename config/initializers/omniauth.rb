@@ -8,3 +8,11 @@
 # Rails.application.config.middleware.use OmniAuth::Builder do
   # provider :twitter, "JcsAKwwgwDV3ypuB6YJHpA", "1AGZclDG6fxE9PpcPhPT2FvKrynqRSo3CFxDT5PEIO0"
 # end
+# Rails.application.config.middleware.use OmniAuth::Builder do
+# 	provider :twitter, ENV['04DtIIGx5qfIVsTLhK2TvA'], ENV['ms88G8KW2KBGs9blljFDgjPOMhz1Bb6Ij0F6RpQdkg']
+# end
+
+# Rails.application.config.middleware.use OmniAuth::Builder do
+#   provider :developer unless Rails.env.production?
+#   provider :twitter, ENV['04DtIIGx5qfIVsTLhK2TvA'], ENV['ms88G8KW2KBGs9blljFDgjPOMhz1Bb6Ij0F6RpQdkg']
+# end

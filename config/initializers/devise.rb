@@ -1,5 +1,6 @@
 require "omniauth-facebook"
-require "omniauth-twitter"
+
+# require "omniauth-twitter"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -214,8 +215,12 @@ Devise.setup do |config|
 
   #twitter
   # provider :twitter, "JcsAKwwgwDV3ypuB6YJHpA", "1AGZclDG6fxE9PpcPhPT2FvKrynqRSo3CFxDT5PEIO0"
-  config.omniauth :twitter, "JcsAKwwgwDV3ypuB6YJHpA", "1AGZclDG6fxE9PpcPhPT2FvKrynqRSo3CFxDT5PEIO0",
-      {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+  # config.omniauth :twitter, "JcsAKwwgwDV3ypuB6YJHpA", "1AGZclDG6fxE9PpcPhPT2FvKrynqRSo3CFxDT5PEIO0"
+  config.omniauth :twitter, '04DtIIGx5qfIVsTLhK2TvA', 'ms88G8KW2KBGs9blljFDgjPOMhz1Bb6Ij0F6RpQdkg',
+   {:scope => 'nickname, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+
+#
+  # config.omniauth :twitter, "JcsAKwwgwDV3ypuB6YJHpA", "1AGZclDG6fxE9PpcPhPT2FvKrynqRSo3CFxDT5PEIO0"
 
 
   # ==> Warden configuration

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :provider, :uid, :oauth_token, :oauth_expires_at
   # attr_accessible :title, :body
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  devise :omniauthable, :omniauth_providers => [:facebook,:twitter]
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -20,16 +20,16 @@ class User < ActiveRecord::Base
     end
   end
   
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  def self.find_for_omni_oauth(auth, signed_in_resource=nil)
+      
+    email1 = auth.info.nickname << "@twitter.com" || auth.info.email if auth.info.nickname
+
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first || User.create(  provider:auth.provider, uid:auth.uid, 
+                      email: email1,
+                      password:Devise.friendly_token[0,20]
+                      )
     unless user
-      user = User.create(  provider:auth.provider,
-                           uid:auth.uid,
-                           email:auth.info.email,
-                           password:Devise.friendly_token[0,20]
-                           )
       user.ensure_authentication_token!
-      # added extra to create authentication token for user
     end
     user
   end
