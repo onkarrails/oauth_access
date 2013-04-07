@@ -27,6 +27,11 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'oauth2'
 
+#bootstrap rails
+gem 'therubyracer'
+gem "less-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end

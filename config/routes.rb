@@ -7,6 +7,12 @@ AuthAccess::Application.routes.draw do
   # devise_scope :user do
   #   get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   # end
+#   devise_for :users, :skip => [:sessions]
+# as :user do
+#   get 'signin' => 'devise/sessions#new', :as => :new_user_session
+#   post 'signin' => 'devise/sessions#create', :as => :user_session
+#   delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+# end
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # match 'auth/twitter/callback', to: 'sessions#create'
   # The priority is based upon order of creation:
